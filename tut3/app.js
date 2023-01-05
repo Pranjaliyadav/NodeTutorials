@@ -60,10 +60,11 @@
 
 
 const http = require('http');
-const routes = require('./routes')
 
-console.log(routes.someText)
+const routes = require('./routes');
 
-const server = http.createServer(routes);
+console.log(routes.someText);
 
-server.listen(3300);
+const server = http.createServer(routes.handler);
+
+server.listen(3000);
