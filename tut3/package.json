@@ -1,0 +1,15 @@
+{
+  "name": "tut3",
+  "version": "1.0.0",
+  "description": "complete node.js guid",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "pranjali",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
