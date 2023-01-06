@@ -1,30 +1,19 @@
-const http = require('http');
-
 const express = require('express')
-
+const bodyParser = require('body-parser')
+const adminRoutes = require('./routes/admin')
+const shopRoutes = require('./routes/shop')
 const app = express()
 //app happens to be a valid request handler so can be passed in createServer
 
-app.use('/addProduct',(req,res,next)=>{
+app.use(bodyParser.urlencoded({extended:false}))
 
-console.log('In the middleare')
-res.send('<h1>Hello from Eproduct</h1>') 
-// next()
-//through next() we get to go to next middle ware i.e, in another middleware
+app.use('/admin',adminRoutes)
+app.use(shopRoutes)
 
+app.use((req,res,next)=>{
+    res.status(404).send('<h1>Page not found</h1>')
+})
 
-}) 
-//next is a function that is passed to this function to travel to ext middleware
-//middle ware function 
-
-
-app.use('/',(req,res,next)=>{
-
-    console.log('In another middleare')
-    res.send('<h1>Hello from Express</h1>') //send automatically sets html header to content type
-
-    
-    }) 
 
 
 
