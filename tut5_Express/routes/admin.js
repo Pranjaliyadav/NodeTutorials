@@ -1,18 +1,17 @@
 const express = require("express");
 const router = express.Router();
+const path = require('path')
+const rootDir = '../util/path'
 
-router.get("/addProduct", (req, res, next) => {
+router.get("/add-product", (req, res, next) => {
 
-  res.send(
-    '<form action="/admin/addProduct" method="POST"><input  type="text" name="title" ><button type="submit">Add Product</form>'
-  );
-  // next()
-  //through next() we get to go to next middle ware i.e, in another middleware
+  res.sendFile(path.join(rootDir,'views','add-product.html'))
+  
 });
 //next is a function that is passed to this function to travel to ext middleware
 //middle ware function
 
-router.post("/addProduct", (req, res, next) => {
+router.post("/add-product", (req, res, next) => {
   console.log(req.body);
   res.redirect("/");
 });
