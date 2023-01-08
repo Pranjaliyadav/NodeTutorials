@@ -4,7 +4,7 @@ html(lang="en")
         meta(charset="UTF-8")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        title Page not Found
+        title #{pageTitle}
         link(rel="stylesheet", href="/css/main.css")
         block styles
         //- this block will get written styles imported
@@ -13,8 +13,10 @@ html(lang="en")
             nav.main-header__nav 
                 ul.main-header__item-list
                     li.main-header__item 
-                        a(href='/') Shop 
+                        a(href='/',class=(path === '/' ? 'active' : '')) Shop 
                     li.main-header__item
-                        a(href='/admin/add-product') Add Product
+                        a(href='/admin/add-product', class=(path === '/admin/add-product' ? 'active' : '')) Add Product
         block content 
         //- this block will get written content imported
+        //- we extend this main-layout.pug in addproduct and shop pugs and
+        //- make different block content in these files and just use it here

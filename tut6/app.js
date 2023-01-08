@@ -3,8 +3,11 @@ const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 
+const expressHbs = require('express-handlebars')
+
 const app = express();
 
+app.engine('handlebars',expressHbs()) //expressHbs intialise engine
 app.set('view engine','pug') //set view engine to pug
 app.set('views','views')
 
@@ -19,7 +22,7 @@ app.use(shopRoutes);
 
 app.use((req, res, next) => {
     // res.status(404).sendFile(path.join(__dirname, 'views', '404.html'));
-    res.status(404).render('404')
+    res.status(404).render('404',{pageTitle:'Page not Found'}) //data is passed in same way of key value pairs to different engines
 });
 
 app.listen(3000);
