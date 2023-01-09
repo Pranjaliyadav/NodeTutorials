@@ -7,7 +7,7 @@ const expressHbs = require('express-handlebars')
 
 const app = express();
 
-app.engine('handlebars',expressHbs()) //expressHbs intialise engine
+app.engine('handlebars',expressHbs({layoutsDir: 'views/layouts/',defaultLayout:'main-layout.handlebars'})) //expressHbs intialise engine
 app.set('view engine','pug') //set view engine to pug
 app.set('views','views')
 
