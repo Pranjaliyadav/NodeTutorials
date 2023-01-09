@@ -3,12 +3,12 @@ const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 
-const expressHbs = require('express-handlebars')
+
 
 const app = express();
 
-app.engine('handlebars',expressHbs({layoutsDir: 'views/layouts/',defaultLayout:'main-layout.handlebars'})) //expressHbs intialise engine
-app.set('view engine','pug') //set view engine to pug
+
+app.set('view engine','ejs') //set view engine to ejs
 app.set('views','views')
 
 const adminRoutes = require('./routes/admin');
